@@ -11,7 +11,7 @@ import time
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 origins = [
-   "https://butterfly-frontend.onrender.com/"
+   "https://butterfly-frontend.onrender.com"
 ]
 app.add_middleware(
    CORSMiddleware,
