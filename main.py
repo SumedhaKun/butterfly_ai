@@ -11,7 +11,7 @@ import time
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 origins = [
-   "https://butterfly-frontend.onrender.com"
+   "https://butterfly-frontend-six.vercel.app"
 ]
 app.add_middleware(
    CORSMiddleware,
@@ -26,15 +26,12 @@ class ImageRequest(BaseModel):
 @app.post("/caption/")
 async def read_root(request: ImageRequest):
     image=request.image
-    time.sleep(5)
+    print(image)
     text=image_to_text.image_to_text(image)
     print(text)
     caption=caption_generation.create_caption(text)
     print(caption)
     return JSONResponse(content={"caption": caption})
-    # if text:
-    #     caption=caption_generation.create_caption(text)
-    #     return caption
    
 
 
